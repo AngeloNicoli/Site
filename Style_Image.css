@@ -1,4 +1,5 @@
-.center {
-  text-align: center;
-  border: 3px solid green;
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
