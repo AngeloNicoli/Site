@@ -1,3 +1,61 @@
 body {
-  background-color: linen;
+  background-color: #414c50;
+}
+
+#myCanvas {
+  width: 50%;
+}
+
+.label {
+    display: block;
+    text-align: center;
+    line-height: 150%;
+    font-size: .85em;
+}
+
+.button {
+  background-color: #04AA6D;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.a {
+  background-color: #e32636;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+
+.row {
+  display: flex;
+}
+
+.column {
+  flex-direction: column;	
+  padding: 10px;
+}
+
+.left {
+  width: 25%;
+}
+
+.right {
+  width: 25%;
+}
+
+.lright {
+  width: 25%; 
+}
+
+.ssright {
+  width: 25%; 
 }
