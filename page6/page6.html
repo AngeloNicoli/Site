@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<!-- This software use Three.js 
+https://github.com/mrdoob/three.js/blob/dev/LICENSE
+The MIT License
+
+Copyright © 2010-2023 three.js authors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE. -->
+
+<html>
+
+<head>
+  <title>Three.js - Scene </title>
+  <style>
+    body {
+      margin: 40;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+<div>
+<input type="button" class="button" onclick="Box_Geometry()" value="Create_Cube">
+<input type="button" class="button" onclick="Capsule_Mesh()" value="Capsule">
+<input type="button" class="button" onclick="Circle_Mesh()" value="Circle">
+</div>
+<br>
+<div>
+  Camera Position:
+<input type="button" class="button" onclick="Cone_Mesh()" value="Cone">
+<input type="button" class="button" onclick="Go_Back()" value="Main Menu">
+</div>
+
+
+<script type="text/javascript" src="../lib/three.js"></script>
+ 
+<script>
+    // Create the scene
+    const scene = new THREE.Scene();
+
+    // Create the camera
+    const camera = new THREE.PerspectiveCamera(75,window.innerWidth / window.innerHeight,0.1,1000
+    );
+    camera.position.z = 10;
+    camera.position.y = 3;
+    camera.lookAt(new THREE.Vector3(0, 0, 0));
+
+    // Create the renderer
+    const renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(new THREE.Color(0xEEEEEE));
+    document.body.appendChild(renderer.domElement);
+
+    //var light = new THREE.HemisphereLight(0xf6e86d, 0x404040, 0.5); 
+    //scene.add(light);
+	
+    //const directionalLight = new THREE.DirectionalLight( 0xffffff, 5 ); 
+    //scene.add( directionalLight );
+
+    const light = new THREE.PointLight( 0xffffff, 1, 100 );  // PUT WHITE LIGHT
+    light.position.set( 5, 5, 5 );
+    scene.add( light );
+  
+    renderer.render(scene, camera);
+    tr_x = 0;
+    tr_y = 0;
+    tr_z = 0;
+
+    // Render the scene
+  a = [];
+  a.length = 0;
+
+for (let i =0; i<20; i++){
+  for (let j =0; j<20; j++){ 
+    const geometry3 = new THREE.BoxGeometry( 0.5, 0.5, 0.5 );
+    rand_col = String(getRandomColor());
+    console.log(rand_col);
+    const material5 = new THREE.MeshLambertMaterial({color: rand_col});
+    console.log("Material" + material5.color);
+    const cube = new THREE.Mesh(geometry3, material5);
+	  scene.add(cube);
+    cube.position.x =((-i+10));
+    cube.position.y = j-5;
+    console.log(i);
+    // a[i] = i
+    console.log(a);
+ }
+}
+
+function getRandomColor() {
+  var letters = '0123456789abcdef';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  console.log(color);
+  return color;
+}
+
+function animate() {
+      requestAnimationFrame(animate);
+      //cylinder.translateX(tr_x); 
+      //cylinder.translateY(tr_y); 
+      //cylinder.translateZ(tr_z); 
+      //cylinder2.translateX(tr_x); 
+      //cylinder2.translateY(tr_y); 
+     // cylinder2.translateZ(tr_z); 
+     // cylinder.rotateX(0.0);
+      //cylinder.rotation.y += 0.01;
+      //cylinder2.rotation.x = 1;
+      //console.log(tr_x);
+      renderer.render(scene, camera);
+    }    
+animate();
+
+function myFunction(coord) {
+  tr_x = coord[0]; 
+  tr_y = coord[1];
+  tr_z = coord[2];
+  console.log(coord);
+  // animate(); no (va piu' veloce)
+   //camera.position.z -= 1;
+}
+
+function myFunction(coord) {
+  tr_x = coord[0]; 
+  tr_y = coord[1];
+  tr_z = coord[2];
+  console.log(coord);
+  // animate(); no (va piu' veloce)
+   //camera.position.z -= 1;
+}
+
+function myFunction2(coord) {
+  camera.position.x += coord[0];
+  camera.position.y += coord[1];
+  camera.position.z += coord[2];
+}
+
+function Box_Geometry() {
+  const geometry3 = new THREE.BoxGeometry( 2, 2, 2 );
+  const material3 = new THREE.MeshLambertMaterial({color: 0xc4981f});
+  const cube = new THREE.Mesh(geometry3, material3);
+	scene.add(cube);
+  cube.position.x =-8
+}
+
+function Capsule_Mesh() {
+   const geometry4 = new THREE.CapsuleGeometry( 1, 1, 4, 8 );
+   const material4 = new THREE.MeshLambertMaterial({color: 0x00FF00}); 
+   const capsule = new THREE.Mesh( geometry4, material4 );
+   scene.add(capsule);
+   capsule.position.x = -5;
+}
+
+function Circle_Mesh() {
+   const geometry = new THREE.CircleGeometry(1,32); 
+   const material = new THREE.MeshLambertMaterial( { color: 0xffff00 } ); 
+   const circle = new THREE.Mesh( geometry, material );
+   scene.add( circle )
+   circle.position.x = -3;
+}
+
+function Cone_Mesh() {
+  const geometry5 = new THREE.ConeGeometry( 1, 2, 32 );
+  const material5 = new THREE.MeshLambertMaterial({color: 0xffaa00}); 
+  const cone = new THREE.Mesh( geometry5, material5 );
+  scene.add(cone);
+  cone.position.x = -1;
+  // cone.rotation.x = -1; 
+  console.log(cone.position);
+  Dodecahedron_Mesh()
+}
+
+function Dodecahedron_Mesh() {
+  const geometry6 = new THREE.DodecahedronGeometry(1, 0);
+  const material6 = new THREE.MeshLambertMaterial({color: 0x00FF00}); 
+  const Dodecahedron = new THREE.Mesh( geometry6, material6 );
+  scene.add(Dodecahedron);
+  Dodecahedron.position.x = 1;
+  // Dodecahedron.rotation.x = 1; 
+  console.log(Dodecahedron.position);
+}
+
+
+function Delete_Mesh() {
+ scene.remove(cone);
+ scene.remove(capsule);
+}
+
+function Go_Back() {
+ //window.location.href = 'http://www.google.com';
+ window.location.href = "../index.html";
+}
+
+
+</script>
+
+</body>
+</html>
+
+
