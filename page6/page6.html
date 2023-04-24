@@ -39,13 +39,15 @@ THE SOFTWARE. -->
 <input type="button" class="button" onclick="Box_Geometry()" value="Create_Cube">
 <input type="button" class="button" onclick="Capsule_Mesh()" value="Capsule">
 <input type="button" class="button" onclick="Circle_Mesh()" value="Circle">
+<input type="button" class="button" onclick="Cone_Mesh()" value="Cone">
 </div>
 <br>
 <div>
   Camera Position:
-<input type="button" class="button" onclick="Cone_Mesh()" value="Cone">
 <input type="button" class="button" onclick="Go_Back()" value="Main Menu">
 </div>
+
+Prova
 
 
 <script type="text/javascript" src="../lib/three.js"></script>
@@ -72,6 +74,8 @@ THE SOFTWARE. -->
 	
     //const directionalLight = new THREE.DirectionalLight( 0xffffff, 5 ); 
     //scene.add( directionalLight );
+
+
 
     const light = new THREE.PointLight( 0xffffff, 1, 100 );  // PUT WHITE LIGHT
     light.position.set( 5, 5, 5 );
@@ -198,11 +202,11 @@ function Dodecahedron_Mesh() {
   console.log(Dodecahedron.position);
 }
 
-
-function Delete_Mesh() {
- scene.remove(cone);
- scene.remove(capsule);
+  function Delete_Mesh() {
+  scene.remove(cone);
+  scene.remove(capsule);
 }
+
 
 function Go_Back() {
  //window.location.href = 'http://www.google.com';

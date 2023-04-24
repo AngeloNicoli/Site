@@ -1,0 +1,8 @@
+body{
+ background-color: #808080;
+}
+
+#Same_line {
+  display: inline-block;
+  background-color: #808080;
+}
