@@ -2,6 +2,13 @@ body {
   background-color: #414c50;
 }
 
+#myHeader {
+  text-align:center;
+  font-family:Times New Roman;
+  color: white;
+}
+
+
 img {
   display: block;
   border-radius: 10%;

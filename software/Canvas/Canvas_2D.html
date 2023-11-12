@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+	<title> Canvas </title>
+
+</head>
+
+<body onload=" Create_Canvas()">
+	<h2 id ="keyReader"> You Press : </h2>
+	<h1 align="center" style="color:White;background-color:#007acc"> Canvas Example </h1>
+	<h3 style="color:White" >Home: <a href="../../index.html" > Go Back </a></h3>
+	<hr>
+	<p align="center">
+		<canvas id="myCanvas" width="400" height="300" style="border:4px solid #2d2d30"> Your browser does not support the HTML canvas tag.</canvas>
+	</p>
+	<p id="demo">Position</p>
+	
+	<br>
+	<hr>
+	<p id="demo" align="center" style="color:White;background-color:#007acc">Start Drawing Elements.</p>
+	
+	<div class="row" align="center">
+		<div class="column C01">
+			<label id="Label" align="center" style="color:White"> LINE:</label><br>
+			<label id="aLabel"  style="color:White" >First Point Coordinate:</label><br>
+			<input type="text" id="aTextBox1" value="50">
+			<br>
+			<input type="text" id="aTextBox2" value="50">
+			<br>
+			<label id="aLabel" style="color:White">Second Point Coordinate:</label><br>
+			<input type="text" id="aTextBox3" value="100">
+			<br>
+			<input type="text" id="aTextBox4" value="100">
+			<br>
+			<input type="button" class="button" onclick="Submit()" value="Draw Line">
+		</div>
+		
+		<div class="column C02">
+			<label id="aLabel" align="center"  style="color:White"> CIRCLE:</label><br>
+			<label id="aLabel" style="color:White">Center of Circle:</label><br>
+			<input type="text" id="aTextBox5" value="150">
+			<br>
+			<input type="text" id="aTextBox6" value="150">
+			<br>
+			<label id="aLabel" style="color:White">Radius:</label><br>
+			<input type="text" id="aTextBox7" value="50"><br>
+			<br>
+			<input type="button" class="button" onclick="Submit2()" value="Draw Circle">
+		</div>
+
+		<div class="column C03">
+			<label id="aLabel" align="center" style="color:White"> Delete Canvas:</label>
+			<br>
+			<label id="aLabel align="center" style="color:White"> Horizontal side</label>	
+			<br>
+			<input type="text" id="aTextBox9" value="100"><br>
+			<input type="text" id="aTextBox10" value="100"><br>
+			<label id="aLabel" style="color:White"> Vertical side:</label><br>
+			<input type="text" id="aTextBox11" value="150"><br>
+			<input type="text" id="aTextBox12" value="150"><br>
+			<input type="button" class="button" onclick="Submit3()" value="Draw Rettangle 1">
+			<input type="button" class="button" onclick="Rectangle_02()" value="Draw Rettangle 2">
+		</div>
+		
+		<div class="column C04">
+			<label id="aLabel" align="center" style="color:White"> Delete Canvas:</label><br>
+			<hr>
+			<input type="button" class="a" onclick="myFunction2()" value="Delete Canvas"><br>
+			<input type="button" class="a" onclick="grid()" value="grid">
+			<p id="Slider_Label"> Number of cell:</p>
+			<input type="range" id="slider_input" min="2" max="20" value="10">
+		</div>
+
+	</div>
+	<hr>
+
+</body>
+
+<footer>
+	<script type = "text/javascript" src="Page3_Script.js"></script> 
+	<link rel="stylesheet" href="Canvas_style.css"> 
+</footer>
+
+</html>
