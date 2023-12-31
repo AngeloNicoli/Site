@@ -1,0 +1,68 @@
+.HUD{
+            display: table;
+        }
+
+        body{
+            background-color: rgb(22, 59, 22)
+        }
+
+        #game-container {
+            position: relative;
+            margin-left: auto;
+            margin-right: auto;
+            width: 800px;
+            height: 600px;
+            border: 1px solid black;
+            background-color: #9bbc0f;
+        }
+
+        #player {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color:#2e4c6a; 
+            border: 3px solid  #0a2e60;
+            border-radius: 20%;
+        }
+
+        .coin {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #0c310c;
+            border: 3px solid  #326732;
+            border-radius: 20%;
+        }
+    
+        .button {
+            background-color: #9bbc0f; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            align-self: center;
+        }
+
+        .table {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+
+        .text {
+            position: absolute; 
+            transform: 200px;
+            color: white;   
+            background-color: #3c4807; /* Green */  
+            padding: 15px 32px;  
+            text-align: center;
+        }
+
+
+        #CopyrightNotice {
+            color: white;   
+            text-align: center;
+
+        }   
