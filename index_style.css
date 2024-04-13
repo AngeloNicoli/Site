@@ -33,13 +33,15 @@ img {
 
 
 .footer {
-  position: fixed;
+  /*  position: fixed; */
   left: 0;
   bottom: 0;
   width: 100%;
+  height: 5%;
   background-color: gray;
   color: white;
-  text-align: center;
+  text-align: right;
+  padding: 1px 1px;
 }
 
 .responsive {
@@ -59,3 +61,6 @@ img {
 }
 
 .button2 {background-color: #008CBA;} /* Blue */
+
+
+.button3 {background-color: #8B8000;} /* Dark Yellow */
