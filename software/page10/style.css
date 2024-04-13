@@ -1,4 +1,4 @@
-.HUD{
+        .HUD{
             display: table;
         }
 
@@ -10,7 +10,7 @@
             position: relative;
             margin-left: auto;
             margin-right: auto;
-            width: 800px;
+            width: 90%;
             height: 600px;
             border: 1px solid black;
             background-color: #9bbc0f;
@@ -33,9 +33,43 @@
             border: 3px solid  #326732;
             border-radius: 20%;
         }
+
+
+        .coin_select {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #ab7616;
+            border: 3px solid  #ac5615;
+            border-radius: 20%;
+        }
+
     
         .button {
             background-color: #9bbc0f; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            align-self: center;
+        }
+
+    
+        .TotalScore {
+            background-color: #4c7dd2; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            align-self: center;
+        }
+
+        .MainMenu {
+            background-color: #4c7dd2; /* Green */
             border: none;
             color: white;
             padding: 15px 32px;

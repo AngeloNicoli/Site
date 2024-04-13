@@ -2,27 +2,32 @@ const player = document.getElementById('player');
 const gameCanvas = document.getElementById("game-container");
 const gameContainer = document.getElementById('game-container');
 const textGame = document.createElement('div');
+const HUD = document.createElement('div');
 textGame.className = "text"
 
 //console.log(player.getBoundingClientRect().left)
 //console.log(player.getBoundingClientRect().right)
 
 let score = 0;
+let generalscore = 0;
 let Level = 1;
-let direction = [(0,0)]
+let direction = [(0,0)];
+let Coin_Scene = {};
+console.log(Coin_Scene)
 
 player.style.left = `${Math.random() * (gameContainer.offsetWidth - 20)}px`;
 
 // Function to create and append coins to the game container
 
-function createCoin() {
+function createCoin(nCoin) {
     const coin = document.createElement('div');
     coin.classList.add('coin');
     coin.style.left = `${Math.random() * (gameContainer.offsetWidth - 20)}px`;
     coin.style.top = `${Math.random() * (gameContainer.offsetHeight - 20)}px`;
-
     gameContainer.appendChild(coin);
     coin.addEventListener('click', collectCoin);
+    Coin_Scene["coin" + nCoin] = coin;
+    console.log(Coin_Scene)
 } 
 
 
@@ -48,6 +53,29 @@ document.addEventListener('keydown', (e) =>{
 });
 
 
+document.onkeydown = function(e) {
+    console.log(e);
+    console.log(e.key);
+    if (e.key == "Escape"){
+        console.log("Open menu");  
+        gameContainer.appendChild(HUD);
+        HUD.innerHTML = 'Menu';
+    }
+    if (e.key == "t"){
+        console.log("Open menu");  
+        HUD.remove();
+
+        //gameContainer.removeChild(Coin_Scene.coin2);
+        Coin_Scene.coin2.classList.remove("coin")
+        Coin_Scene.coin2.classList.add("coin_select")
+        // delete Coin_Scene.coin2;
+        console.log(gameContainer);  
+        console.log(Coin_Scene)
+    }
+};
+
+
+
 // Function to handle coin collection
 function collectCoin() {
     let playerX= player.getBoundingClientRect().x
@@ -60,7 +88,9 @@ function collectCoin() {
     if (Math.abs(playerX - coinX) < 50){
         console.log("£")
         score++;
+        generalscore++;
         this.parentNode.removeChild(this);
+        console.log(Coin_Scene)
         var audio = new Audio('coin.wav');
         audio.play();
         if (score == 5){
@@ -87,7 +117,7 @@ function collectCoin() {
 // Create initial coins
 function PopulateCoin(){
     for (let i = 0; i < 5; i++) {
-        createCoin();
+        createCoin(i);
     }
 }
 
@@ -95,7 +125,16 @@ function PopulateCoin(){
 function updateScene() {
     document.getElementById('Level').textContent = `Level: ${Level}   `;
     document.getElementById('score').textContent = `Score: ${score}   `;
-    player.style.top = `${Math.max(0, player.offsetTop - 0)}px`;   
+    document.getElementById('total_score').textContent = `Total Score: ${generalscore} `;
+    player.style.top = `${Math.max(0, player.offsetTop - 0)}px`;  
+    
+
+    for (const key in  Coin_Scene) {
+        // console.log(Coin_Scene)
+        //console.log(Coin_Scene[key])
+        console.log(Coin_Scene[key].style.top)
+        console.log(Coin_Scene[key].style.left)
+    }
 }
 
 function RestartGame(){
