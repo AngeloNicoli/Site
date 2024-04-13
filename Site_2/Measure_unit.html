@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Select Menu</title>
+</head>
+<body>
+
+<h2>Choose an Option</h2>
+
+
+<input type="text" id="first_number" value= "10">
+<select id="menu">
+  <option value="Option 1"> km </option>
+  <option value="Option 2"> m </option>
+  <option value="Option 3"> mm </option>
+</select>
+<button onclick="printChoice()">Print Choice</button>
+<div id ="Result"></div>
+
+<script>
+var dict = {};
+
+var dict = {km: 10**6,m: 10**3, mm: 10**0};
+console.log(dict["km"])
+
+function convert_measure(selectedOption){
+  for (const [key, value] of Object.entries(dict)) {
+	if (value !=  dict[selectedOption]){
+		console.log(key, value);
+		
+		Conversion_Value = parseInt((value)) / parseInt((dict[selectedOption]));
+		console.log("value is" + value)
+		console.log("current selection is" + dict[selectedOption])
+		console.log("Conversion Value " + Conversion_Value)
+		}	
+}
+}
+
+
+// Function to print the selected choice
+function printChoice() {
+  var selectElement = document.getElementById("menu");
+  var selectedOption = selectElement.options[selectElement.selectedIndex].text;
+  convert_measure(selectedOption)
+  document.getElementById("Result").innerText = "Current Selection: " + dict[selectedOption] + " " + "mm" 
+
+
+  // You can replace console.log with any other action you want to perform with the selected choice
+}
+</script>
+
+</body>
+</html>

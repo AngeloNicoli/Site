@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Canvas Animation</title>
+<style>
+    canvas {
+        border: 1px solid black;
+    }
+</style>
+</head>
+<body>
+ <a href="../index.html" style="color:#EEEEEE;"> Home Page </a>
+<b id="Position"> Position </b>
+<hr>
+
+<canvas id="myCanvas" width="400" height="400"></canvas>
+<button onclick="startAnimation()">Start Animation</button>
+
+<script>
+    function startAnimation() {
+        const canvas = document.getElementById('myCanvas');
+        const ctx = canvas.getContext('2d');
+        let x = 50; // Initial x-coordinate of the circle
+
+        function drawCircle(x) {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.beginPath();
+            ctx.arc(x, 200, 20, 0, Math.PI * 2);
+            ctx.fillStyle = 'blue';
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function animate() {
+            // Move the circle
+            x += 1;
+
+            // Clear canvas and redraw the circle
+            drawCircle(x);
+ 	    document.getElementById("Position").innerText  = "Position is " + x + "m";
+            
+
+            // Request animation frame to continue the animation
+            requestAnimationFrame(animate);
+        }
+
+        // Start the animation
+        animate();
+    }
+</script>
+
+</body>
+</html>

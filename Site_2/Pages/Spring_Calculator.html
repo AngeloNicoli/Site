@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+
+<style>    
+div.external_border {
+    height: 50%;
+    width: 50%;
+    background-color:#1e3e6d;
+    border-radius: 10px;
+    padding: 20px;
+    }
+	
+.button {
+  background-color: #88d497; 
+  border: none;
+  color:  #114b5f;
+  font-size: 14px;
+  margin: 6px 6px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+</style>  
+
+
+<
+
+
+<div  class="external_border" style="color:#EEEEEE;">
+    <a href="../index.html" style="color:#EEEEEE;"> Home Page </a>
+    <br>
+    <br>
+    
+    <body style="background-color:#222831;">
+
+ k - Costante molla (N/mm) 
+<input type="text" id="first_number" value="0.55">
+<hr>
+
+ x - Spostamento (mm)
+<input type="text" id="second_number" value="100">
+<hr>
+
+F = k · x
+<button class="button" onclick="Clicked()"> Calculate </button>
+
+<hr>
+<b id="result"> Result </b>
+<hr>
+
+<svg width="400" height="200">
+    <path d="M0 0 L400 0 L400 200 L0 200 Z" stroke="green" stroke-width="1" fill="white"/>
+    <text x="5" y="20" font-family="Arial" font-size="20" fill="black">Spring </text>
+    <!-- Example shapes drawn on the SVG canvas -->
+    <path d="M20 60 L50 60 L60 100 L70 20 L80 100 L90 20  L100 100 L110 20  L120 100 L130 20 L140 100 L150 60 L200 60" stroke="green" stroke-width="1" fill="white"/>
+
+  </svg>
+  
+
+</div>
+
+<script>
+    function Clicked(){
+        a = document.getElementById("first_number").value
+        b = document.getElementById("second_number").value
+        console.log("click");
+        Result = parseFloat(a) * parseFloat(b)
+
+        document.getElementById("result").innerText  = "Force is " + String(Result) + " N";
+
+    }
+
+</script>
