@@ -44,7 +44,7 @@ function printChoice() {
   var selectElement = document.getElementById("menu");
   var selectedOption = selectElement.options[selectElement.selectedIndex].text;
   convert_measure(selectedOption)
-  document.getElementById("Result").innerText = "Current Selection: " + dict[selectedOption] + " " + "mm" 
+  document.getElementById("Result").innerText = "Current Selection: " + String(selectedOption) + " equals to " + dict[selectedOption]  + "mm" 
 
 
   // You can replace console.log with any other action you want to perform with the selected choice

@@ -84,7 +84,7 @@ P = (ρ·g·Q·H)/η
         e = document.getElementById("fifth_number").value
 
         console.log("click");
-        Result = parseFloat(a) * parseFloat(b)* parseFloat(c) * parseFloat(d)* parseFloat(e)
+        Result = (parseFloat(a) * parseFloat(b)* parseFloat(c) * parseFloat(d)) / parseFloat(e)
 
         document.getElementById("result").innerText  = "Power is " + String(Result) + " W";
 
